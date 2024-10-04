@@ -22,8 +22,12 @@ public:
     bool authenticateUser(QString _email, QString _password);
     bool insertStudent(QString firstName, QString lastName, QString email, QString password, QString gender, qint16 age, QString registeredCourse);
     bool insertTeacher(QString firstName, QString lastName, QString email, QString password, QString gender, qint16 age, QString course, QString background, QString address);
-    bool insertPerson(QString firstName, QString lastName, QString email, QString password,QString gender, qint16 age );
-
+    bool insertPerson(QString firstName, QString lastName, QString email, QString password,QString gender, qint16 age, QString type);
+    bool deletePerson(QString email);
+    bool modifyPerson(QString email, QString firstName, QString lastName, QString password, QString gender, qint16 age);
+    QList<QMap<QString, QString>> getAssignedStudents(QString course);
+    bool registerForCourse(QString email, QString course);
+    QString mGetType(QString email);
     QString mGetName(QString email);
 };
 

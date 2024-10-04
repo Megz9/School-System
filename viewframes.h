@@ -3,6 +3,16 @@
 
 #include <QMainWindow>
 
+#include <QVBoxLayout>
+#include <QLabel>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QMessageBox>
+#include <QTableWidget>
+#include <QSpinBox>
+#include <QComboBox>
+
+
 // QT_BEGIN_NAMESPACE
 // namespace Ui { class MainWindow; }
 // QT_END_NAMESPACE
@@ -21,19 +31,46 @@ public:
     QString mGetInputRegisterLastName();
     QString mGetInputRegisterPassword();
     int     mGetInputRegisterAge();
-    bool    mGetInputRegisterGender();
+    QString mGetInputRegisterGender();
     QString mGetInputRegisterAddress();
     QString mGetInputRegisterRegisteredCourse();
     QString mGetInputRegisterTeacherCourse();
     QString mGetInputRegisterBackground();
     void mShowStudentFrame(QString email, QString firstName);
     void mShowTeacherFrame(QString email, QString firstName);
-    void mShowInsertState(bool state);//register
+    void mShowInsertState(bool state);
     void mShowLoginState(bool state);
-    // void mLoadUsersGui(QMap<QString,QString> xEmployees);
+    void mShowModifyState(bool state);
+    void mShowDeleteState(bool state);
+    void mShowRegisterCourseState(bool state);
+    void mLoadUsersGui(QMap<QString,QString> xEmployees);
+    void mLoadAdminGui();
+    void mLoadTeachersGui();
+    void mLoadStudentsGui(QList<QMap<QString, QString>> students);
 
-// private slots:
-//     void on_LoginButton_clicked();
+
+    QPushButton *studentsButton;
+    QPushButton *teachersButton;
+    QPushButton *subjectsButton;
+    QPushButton *loginButton;
+
+    QLabel *loginEmailLabel;
+    QLineEdit *loginEmailLineEdit;
+    QLabel *loginPasswordLabel;
+    QLineEdit *loginPasswordLineEdit;
+
+    QLineEdit *registerEmailLineEdit;
+    QLineEdit *registerFirstNameLineEdit;
+    QLineEdit *registerLastNameLineEdit;
+    QLineEdit *registerPasswordLineEdit;
+    QSpinBox *registerAgeSpinBox;
+    QComboBox *registerGenderComboBox;
+    QLineEdit *registerStudentCourseLineEdit;
+    QLineEdit *registerTeacherCourseLineEdit;
+    QLineEdit *registerTeacherBackgroundLineEdit;
+    QLineEdit *registerTeacherAddressLineEdit;
+private slots:
+    void on_LoginButton_clicked();
 
 //     void on_LogoutPB_clicked();
 
@@ -45,9 +82,10 @@ private:
 
     void mCreateGui();
 
-// signals:
-//     void LoginAttempt();
-//     void AddNewUserAttempt();
+signals:
+    void LoginAttempt();
+    void AddNewStudentAttempt();
+    void AddNewTeacherAttempt();
 };
 
 #endif // VIEWFRAMES_H

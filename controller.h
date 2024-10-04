@@ -12,7 +12,12 @@ private:
     model* dmodel;
 private slots:
     void mAttemptLoginAndRedirect();
-    void mAttemptAddingEmployee();
+    void mAttemptAddingStudent();
+    void mAttemptAddingTeacher();
+    // void mAttemptModifyPerson();
+    // void mAttemptDeletePerson();
+    void mViewAssignedStudents();
+    void mAttemptRegisterCourse();
     void mRegisterSignals();
 };
 
